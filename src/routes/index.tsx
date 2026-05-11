@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import logo from "@/assets/logo.png";
 import {
   ArrowRight,
   Dumbbell,
@@ -109,15 +110,17 @@ function Index() {
         className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
       >
         <div className="relative">
-          <div className="font-display text-5xl sm:text-7xl shimmer tracking-[0.15em]">
-            BE MASSIVE
-          </div>
+          <img
+  src={logo}
+  alt="BE MASSIVE Logo"
+  className="w-28 sm:w-36 md:w-44 object-contain shimmer"
+/>
           <div className="mt-6 h-px w-full overflow-hidden bg-border">
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: "100%" }}
               transition={{ duration: 1.4, ease: "easeInOut" }}
-              className="h-full w-full bg-gradient-gold"
+              className="h-full w-full bg-white"
             />
           </div>
         </div>
@@ -126,7 +129,7 @@ function Index() {
       <MouseGlow />
 
       {/* NAV */}
-      <header className="fixed top-0 left-0 right-0 z-50">
+      {/* <header className="fixed top-0 left-0 right-0 z-50">
         <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between glass-strong mt-4 rounded-full w-[calc(100%-2rem)] sm:w-auto sm:mx-auto sm:px-8">
           <a href="#top" className="font-display text-xl sm:text-2xl tracking-[0.2em] text-gradient-gold">
             BE MASSIVE
@@ -145,14 +148,60 @@ function Index() {
             Join
           </a>
         </div>
-      </header>
+      </header> */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+  <div className="mx-auto max-w-7xl px-8 lg:px-12 py-7 flex items-center justify-between">
+    
+    <a
+      href="#top"
+      className="font-display text-2xl sm:text-3xl tracking-[0.25em] text-gradient-gold"
+    >
+      BE MASSIVE
+    </a>
+
+    <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.3em] text-muted-foreground font-medium">
+      <a href="#about" className="hover:text-foreground transition-colors">
+        About
+      </a>
+      <a href="#transform" className="hover:text-foreground transition-colors">
+        Transform
+      </a>
+      <a href="#services" className="hover:text-foreground transition-colors">
+        Services
+      </a>
+      <a href="#locations" className="hover:text-foreground transition-colors">
+  Locations
+</a>
+      <a href="#why" className="hover:text-foreground transition-colors">
+        Why Us
+      </a>
+      
+      <a href="#soon" className="hover:text-foreground transition-colors">
+        Soon
+      </a>
+    </nav>
+
+    <a
+      href="#soon"
+      className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-gold px-7 py-3 text-sm uppercase tracking-[0.2em] text-primary-foreground font-semibold hover:scale-105 transition-transform"
+    >
+      Join
+    </a>
+
+  </div>
+</header>
 
       {/* HERO */}
-      <section
+      {/* <section
         id="top"
         ref={heroRef}
         className="relative h-screen min-h-[700px] w-full overflow-hidden grain"
-      >
+      > */}
+      <section
+  id="top"
+  ref={heroRef}
+  className="relative h-screen min-h-screen w-full overflow-hidden grain pt-28 sm:pt-32"
+>
         <motion.div
           style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}
           className="absolute inset-0"
@@ -170,16 +219,9 @@ function Index() {
 
         <Particles count={30} />
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-[10px] uppercase tracking-[0.4em] text-muted-foreground"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-gradient-gold pulse-gold" />
-            Premium Personal Training Studio
-          </motion.div>
+        {/* <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"> */}
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center pt-20 sm:pt-24 md:pt-28 lg:pt-32">
+          
 
           <motion.h1
             initial={{ opacity: 0, y: 60, letterSpacing: "0.4em" }}
@@ -215,34 +257,30 @@ function Index() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
-            transition={{ delay: 2.4, duration: 0.8 }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
-          >
-            <a
-              href="#soon"
-              className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-primary-foreground shadow-gold hover:scale-105 transition-transform overflow-hidden"
-            >
-              <span className="relative z-10">Coming Online Soon</span>
-              <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#about"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[--gold]/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-foreground hover:border-[--gold] hover:bg-[--gold]/10 transition-all"
-            >
-              Start Your Transformation
-            </a>
-          </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: loading ? 0 : 1, y: loading ? 20 : 0 }}
+  transition={{ delay: 2.4, duration: 0.8 }}
+  className="mt-10 flex flex-col sm:flex-row items-center gap-3"
+>
+  <a
+    href="#soon"
+    className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-gradient-gold px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground shadow-gold hover:scale-105 transition-transform overflow-hidden"
+  >
+    <span className="relative z-10">Coming Online Soon</span>
+    <ArrowRight className="relative z-10 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+  </a>
+
+  <a
+    href="#about"
+    className="inline-flex items-center justify-center gap-2 rounded-full border border-[--gold]/40 px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground hover:border-[--gold] hover:bg-[--gold]/10 transition-all"
+  >
+    Start Your Transformation
+  </a>
+</motion.div>
         </div>
 
         {/* scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground z-10">
-          <span className="text-[10px] uppercase tracking-[0.4em]">Scroll</span>
-          <div className="h-10 w-5 rounded-full border border-[--gold]/40 flex justify-center pt-1.5">
-            <div className="scroll-dot h-2 w-1 rounded-full bg-gradient-gold" />
-          </div>
-        </div>
+        
       </section>
 
       {/* ABOUT */}
@@ -269,7 +307,7 @@ function Index() {
               </p>
             </Reveal>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 md:-mt-12 lg:-mt-20">
               {[
                 { t: "Strength", d: "Build a body that performs." },
                 { t: "Discipline", d: "Train the mind first." },
@@ -302,7 +340,7 @@ function Index() {
           </Reveal>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.1}>
                 <div className="glass-strong rounded-2xl p-6 sm:p-8 text-center">
@@ -313,7 +351,24 @@ function Index() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </div> */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+  {stats.map((s, i) => (
+    <Reveal key={s.label} delay={i * 0.1}>
+      <div className="glass-strong rounded-2xl p-6 sm:p-8 text-center flex flex-col items-center justify-center min-h-[170px]">
+        
+        <div className="font-display text-4xl sm:text-5xl md:text-6xl text-gradient-gold leading-none">
+          {s.value}
+        </div>
+
+        <div className="mt-3 text-[9px] sm:text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-center leading-relaxed">
+          {s.label}
+        </div>
+
+      </div>
+    </Reveal>
+  ))}
+</div>
 
           {/* Showcase */}
           <div className="grid md:grid-cols-3 gap-6">
@@ -392,6 +447,129 @@ function Index() {
           </div>
         </div>
       </section>
+      {/* LOCATIONS */}
+<section
+  id="locations"
+  className="relative py-32 px-6 overflow-hidden bg-gradient-dark"
+>
+  {/* glow background */}
+  <div
+    className="absolute inset-0 opacity-30"
+    style={{
+      background:
+        "radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 65%)",
+    }}
+  />
+
+  <div className="relative mx-auto max-w-7xl">
+    <Reveal>
+      <div className="text-center mb-20">
+        <p className="text-xs uppercase tracking-[0.4em] text-gradient-gold mb-6">
+          — Our Presence
+        </p>
+
+        <h2 className="font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95]">
+          OUR <span className="text-gradient-gold">LOCATIONS</span>
+        </h2>
+
+        <p className="mt-8 max-w-3xl mx-auto text-base sm:text-lg text-muted-foreground leading-relaxed">
+          Building a stronger fitness culture — one community at a time.
+        </p>
+      </div>
+    </Reveal>
+
+    <div className="grid lg:grid-cols-2 gap-6">
+      
+      {/* ACTIVE BRANCH */}
+      <Reveal delay={0.1}>
+        <div className="relative overflow-hidden rounded-3xl glass-strong p-6 sm:p-7 h-full border border-[--gold]/20 hover:border-[--gold]/50 transition-all duration-500">
+          
+          <div
+            className="absolute -top-20 -right-20 h-52 w-52 rounded-full blur-3xl opacity-30"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(212,175,55,0.45), transparent 70%)",
+            }}
+          />
+
+          <div className="relative z-10">
+            <div className="inline-flex items-center rounded-full bg-green-500/10 border border-green-500/30 px-4 py-1.5 text-[10px] uppercase tracking-[0.35em] text-green-400">
+              LIVE NOW
+            </div>
+
+            <h3 className="mt-8 font-display text-4xl sm:text-5xl tracking-wide">
+              Malapally
+            </h3>
+
+            <p className="mt-6 text-muted-foreground leading-relaxed text-base">
+              Personal training sessions are actively running in Malapally with
+              focused coaching, strength training, transformation programs, and
+              lifestyle guidance.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <div className="rounded-full border border-[--gold]/20 px-4 py-2 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                Strength Training
+              </div>
+
+              <div className="rounded-full border border-[--gold]/20 px-4 py-2 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                Fat Loss
+              </div>
+
+              <div className="rounded-full border border-[--gold]/20 px-4 py-2 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                Lifestyle Coaching
+              </div>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* UPCOMING BRANCH */}
+      <Reveal delay={0.2}>
+        <div className="relative overflow-hidden rounded-3xl glass p-6 sm:p-7 h-full border border-[--gold]/20 hover:border-[--gold]/50 transition-all duration-500">
+          
+          <div
+            className="absolute -bottom-20 -left-20 h-52 w-52 rounded-full blur-3xl opacity-40"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(212,175,55,0.5), transparent 70%)",
+            }}
+          />
+
+          <div className="relative z-10">
+            <div className="inline-flex items-center rounded-full bg-[--gold]/10 border border-[--gold]/30 px-4 py-1.5 text-[10px] uppercase tracking-[0.35em] text-gradient-gold">
+              COMING SOON
+            </div>
+
+            <h3 className="mt-8 font-display text-4xl sm:text-5xl tracking-wide">
+              Vinayak Nagar
+            </h3>
+
+            <p className="mt-6 text-muted-foreground leading-relaxed text-base">
+              Construction and setup work has officially begun for our upcoming
+              premium branch in Vinayak Nagar.
+            </p>
+
+            <p className="mt-5 text-foreground text-base leading-relaxed">
+              Stay connected to be among the first to know when the doors open
+              and early access registrations begin.
+            </p>
+
+            <div className="mt-10">
+              <a
+                href="#soon"
+                className="group inline-flex items-center gap-3 rounded-full bg-gradient-gold px-7 py-4 text-sm uppercase tracking-[0.2em] font-semibold text-primary-foreground shadow-gold hover:scale-105 transition-transform"
+              >
+                Stay Updated
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </div>
+</section>
 
       {/* WHY US */}
       <section id="why" className="relative py-32 px-6 bg-gradient-dark">
@@ -536,18 +714,30 @@ function Index() {
               <div className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-4">Connect</div>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a href="#" className="inline-flex items-center gap-3 hover:text-[--gold] transition-colors">
-                    <Instagram className="h-4 w-4 text-[--gold]" /> @bemassive
-                  </a>
+                  <a
+  href="https://www.instagram.com/bemassive_p.t_studio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-3 hover:text-[--gold] transition-colors"
+>
+  <Instagram className="h-4 w-4 text-[--gold]" />
+  @bemassive_p.t_studio
+</a>
+                </li>
+                <li>
+                  <a
+  href="https://wa.me/919381948455?text=Hello%20BE%20MASSIVE%2C%20I%20would%20like%20to%20know%20more%20about%20your%20training%20programs."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-3 hover:text-[--gold] transition-colors"
+>
+  <MessageCircle className="h-4 w-4 text-[--gold]" />
+  WhatsApp +91 93819 48455
+</a>
                 </li>
                 <li>
                   <a href="#" className="inline-flex items-center gap-3 hover:text-[--gold] transition-colors">
-                    <MessageCircle className="h-4 w-4 text-[--gold]" /> WhatsApp +91 00000 00000
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="inline-flex items-center gap-3 hover:text-[--gold] transition-colors">
-                    <Mail className="h-4 w-4 text-[--gold]" /> hello@bemassive.fit
+                    <Mail className="h-4 w-4 text-[--gold]" /> asraar@bemassive_pt_studio.com 
                   </a>
                 </li>
               </ul>
@@ -571,13 +761,7 @@ function Index() {
         </div>
 
         {/* scroll-down arrow back to top */}
-        <a
-          href="#top"
-          className="fixed bottom-6 right-6 z-40 hidden sm:inline-flex h-12 w-12 items-center justify-center rounded-full glass-strong hover:bg-gradient-gold hover:text-primary-foreground transition-all"
-          aria-label="Back to top"
-        >
-          <ChevronDown className="h-5 w-5 rotate-180" />
-        </a>
+        
       </footer>
     </div>
   );
