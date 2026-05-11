@@ -58,7 +58,7 @@ const whyUs = [
 const stats = [
   { value: "500+", label: "Transformations" },
   { value: "98%", label: "Client Satisfaction" },
-  { value: "1:1", label: "Personalized Coaching" },
+  { value: "1:1", label: "Personalized Training" },
   { value: "365", label: "Lifestyle Plans" },
 ];
 
