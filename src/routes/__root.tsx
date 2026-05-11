@@ -72,7 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "BE MASSIVE — Premium Personal Training Studio" },
+      { title: "BE MASSIVE — Personal Training Studio" },
       { name: "description", content: "Be Bold. Be Great. Stand Out. Premium personal training focused on fitness, strength, health and real transformation." },
       { name: "author", content: "BE MASSIVE" },
       { property: "og:title", content: "BE MASSIVE — Be Bold. Be Great. Stand Out." },
